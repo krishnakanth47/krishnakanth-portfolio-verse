@@ -47,9 +47,9 @@ const Projects = () => {
   const achievements = [
     {
       title: 'Anna University Football Tournament',
-      achievement: 'Runner-Up & Team Captain',
+      achievement: 'Runner-Up & Goalkeeper',
       location: 'Zonal Level',
-      description: 'Led the team to runner-up position in the zonal football tournament.',
+      description: 'Served as goalkeeper and helped lead the team to runner-up position in the zonal football tournament.',
       icon: Trophy,
       color: 'from-yellow-500 to-amber-600'
     },

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Phone, Linkedin, Github, Send, MapPin } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Send, MapPin, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -52,6 +52,13 @@ const Contact = () => {
       value: 'LinkedIn Profile',
       href: 'https://linkedin.com/in/krishnakanth-j',
       color: 'from-blue-600 to-blue-700'
+    },
+    {
+      icon: Instagram,
+      label: 'Instagram',
+      value: 'Instagram Profile',
+      href: 'https://www.instagram.com/krishna_kanth_j?igsh=MWd3cTJlcTFmbmJ3dA==&utm_source=ig_contact_invite',
+      color: 'from-pink-500 to-purple-600'
     },
     {
       icon: MapPin,
@@ -130,6 +137,14 @@ const Contact = () => {
                   className="p-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
                 >
                   <Github className="h-6 w-6" />
+                </a>
+                <a
+                  href="https://www.instagram.com/krishna_kanth_j?igsh=MWd3cTJlcTFmbmJ3dA==&utm_source=ig_contact_invite"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
+                >
+                  <Instagram className="h-6 w-6" />
                 </a>
               </div>
             </div>
