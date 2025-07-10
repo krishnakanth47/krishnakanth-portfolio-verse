@@ -22,7 +22,7 @@ const Hero = () => {
         <div className="mb-8 animate-fade-in">
           <div className="w-32 h-32 mx-auto rounded-full shadow-2xl overflow-hidden">
             <img 
-              src="https://i.ibb.co/C3xWBFHq/1aa8503a-f876-43b1-a1e7-36e5009f453d.jpg" 
+              src="/lovable-uploads/bd984093-71e0-4e8f-a218-f62599e10d88.png" 
               alt="Krishnakanth J." 
               className="w-full h-full object-cover"
             />
