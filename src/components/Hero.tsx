@@ -1,51 +1,63 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowDown, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   const [nameText, setNameText] = useState('');
-  const [titleText, setTitleText] = useState('Aspiring Computer Science Engineer');
+  const [titleText, setTitleText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
   
   const fullName = 'Krishnakanth J.';
   const fullTitle = 'Aspiring Computer Science Engineer';
 
   useEffect(() => {
-    // Forward typing animation for name
-    let nameIndex = 0;
-    const nameInterval = setInterval(() => {
-      if (nameIndex < fullName.length) {
-        setNameText(fullName.slice(0, nameIndex + 1));
-        nameIndex++;
-      } else {
-        clearInterval(nameInterval);
-        // Start backward typing for title after name is complete
-        setTimeout(() => {
-          let titleIndex = fullTitle.length;
-          const titleInterval = setInterval(() => {
-            if (titleIndex > 0) {
-              setTitleText(fullTitle.slice(0, titleIndex - 1));
-              titleIndex--;
-            } else {
-              clearInterval(titleInterval);
-              // Forward typing for title
-              setTimeout(() => {
-                let forwardIndex = 0;
-                const forwardInterval = setInterval(() => {
-                  if (forwardIndex < fullTitle.length) {
-                    setTitleText(fullTitle.slice(0, forwardIndex + 1));
-                    forwardIndex++;
-                  } else {
-                    clearInterval(forwardInterval);
-                  }
-                }, 50);
-              }, 500);
-            }
-          }, 30);
-        }, 1000);
-      }
-    }, 100);
+    const startTypingAnimation = () => {
+      // Reset states
+      setNameText('');
+      setTitleText(fullTitle);
+      
+      // Forward typing animation for name
+      let nameIndex = 0;
+      const nameInterval = setInterval(() => {
+        if (nameIndex < fullName.length) {
+          setNameText(fullName.slice(0, nameIndex + 1));
+          nameIndex++;
+        } else {
+          clearInterval(nameInterval);
+          // Start backward typing for title after name is complete
+          setTimeout(() => {
+            let titleIndex = fullTitle.length;
+            const titleBackwardInterval = setInterval(() => {
+              if (titleIndex > 0) {
+                setTitleText(fullTitle.slice(0, titleIndex - 1));
+                titleIndex--;
+              } else {
+                clearInterval(titleBackwardInterval);
+                // Forward typing for title
+                setTimeout(() => {
+                  let forwardIndex = 0;
+                  const titleForwardInterval = setInterval(() => {
+                    if (forwardIndex < fullTitle.length) {
+                      setTitleText(fullTitle.slice(0, forwardIndex + 1));
+                      forwardIndex++;
+                    } else {
+                      clearInterval(titleForwardInterval);
+                      // Wait before starting the loop again
+                      setTimeout(() => {
+                        startTypingAnimation();
+                      }, 3000);
+                    }
+                  }, 50);
+                }, 500);
+              }
+            }, 30);
+          }, 1000);
+        }
+      }, 100);
+    };
+
+    // Start the animation
+    startTypingAnimation();
 
     // Cursor blinking effect
     const cursorInterval = setInterval(() => {
@@ -53,7 +65,6 @@ const Hero = () => {
     }, 500);
 
     return () => {
-      clearInterval(nameInterval);
       clearInterval(cursorInterval);
     };
   }, []);
@@ -112,7 +123,7 @@ const Hero = () => {
           <h1 className="text-6xl md:text-8xl font-bold mb-8 tracking-tight min-h-[1.2em]">
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               {nameText}
-              {showCursor && nameText.length < fullName.length && <span className="animate-pulse">|</span>}
+              {showCursor && <span className="animate-pulse">|</span>}
             </span>
           </h1>
           
@@ -120,7 +131,7 @@ const Hero = () => {
           <div className="space-y-4 mb-8">
             <p className="text-2xl md:text-3xl font-semibold text-foreground/90 min-h-[1.5em]">
               {titleText}
-              {showCursor && titleText !== fullTitle && <span className="animate-pulse text-primary">|</span>}
+              {showCursor && <span className="animate-pulse text-primary">|</span>}
             </p>
             
             <div className="flex flex-wrap justify-center gap-3 text-sm font-medium animate-fade-in delay-1000">
