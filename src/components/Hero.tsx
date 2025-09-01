@@ -8,7 +8,7 @@ const Hero = () => {
   const [showCursor, setShowCursor] = useState(true);
   
   const fullName = 'Krishnakanth J.';
-  const fullTitle = 'Aspiring Computer Science Engineer';
+  const fullTitle = 'Aspiring Computer Science Engineering student';
 
   useEffect(() => {
     const startTypingAnimation = () => {
