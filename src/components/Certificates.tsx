@@ -7,6 +7,7 @@ import aictsdImage from '@/assets/certificates/aictsd-quiz.jpg';
 import asmeImage from '@/assets/certificates/asme-novate.jpg';
 import nptelImage from '@/assets/certificates/nptel-design-thinking.jpg';
 import infosysImage from '@/assets/certificates/infosys-ai-python.jpg';
+import srit30DaysImage from '@/assets/certificates/srit-30-days-coding.jpg';
 
 const certificates = [
   {
@@ -25,34 +26,41 @@ const certificates = [
   },
   {
     id: 3,
+    title: '30 Days Coding Challenge (3rd Position)',
+    organization: 'SRIT',
+    year: '2024',
+    image: srit30DaysImage,
+  },
+  {
+    id: 4,
     title: 'ICTRD Python Programming Certificate',
     organization: 'ICTRD',
     year: '2024',
     image: ictrdImage,
   },
   {
-    id: 4,
+    id: 5,
     title: 'AICTSD Aryabhata Quiz Certificate',
     organization: 'AICTSD',
     year: '2023',
     image: aictsdImage,
   },
   {
-    id: 5,
+    id: 6,
     title: 'ASME TN-NOVATE Participation',
     organization: 'ASME',
     year: '2024',
     image: asmeImage,
   },
   {
-    id: 6,
+    id: 7,
     title: 'NPTEL Design Thinking',
     organization: 'NPTEL',
     year: '2024',
     image: nptelImage,
   },
   {
-    id: 7,
+    id: 8,
     title: 'Infosys AI Using Python',
     organization: 'Infosys Springboard',
     year: '2024',
